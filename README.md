@@ -1,5 +1,9 @@
 Primary video source "https://www.youtube.com/watch?v=NU-HfZY3ATQ&t=5s"
 
+Installed react-scrollable-feed and forced it due to it not being updated
+for React 18
+https://www.npmjs.com/package/react-scrollable-feed
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
