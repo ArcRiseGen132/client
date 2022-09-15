@@ -1,14 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
+// import ScrollToBottom from "react-scroll-to-bottom";
 
 const Chat = ({ socket, username, room }) => {
   const [currentMessage, setCurrentMessage] = useState();
   const [messageList, setMessageList] = useState([]);
 
-  const AlwaysScrollToBottom = () => {
-    const elementRef = useRef();
-    useEffect(() => elementRef.current.scrollIntoView());
-    return <div ref={elementRef} />;
-  };
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
@@ -47,24 +43,24 @@ const Chat = ({ socket, username, room }) => {
       </div>
       <div className="chat-body">
         {/* <ScrollToBottom className="message-container"> */}
-        {messageList.map((messageContent) => {
-          return (
-            <div
-              className="message"
-              id={username === messageContent.author ? "you" : "other"}
-            >
-              <div>
-                <div className="message-content">
-                  <p> {messageContent.message}</p>
-                </div>
-                <div className="message-meta">
-                  <p id="time"> {messageContent.time}</p>
-                  <p id="author"> {messageContent.author}</p>
+          {messageList.map((messageContent) => {
+            return (
+              <div
+                className="message"
+                id={username === messageContent.author ? "you" : "other"}
+              >
+                <div>
+                  <div className="message-content">
+                    <p> {messageContent.message}</p>
+                  </div>
+                  <div className="message-meta">
+                    <p id="time"> {messageContent.time}</p>
+                    <p id="author"> {messageContent.author}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
         {/* </ScrollToBottom> */}
       </div>
       <div className="chat-footer">
